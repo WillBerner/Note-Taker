@@ -1,12 +1,10 @@
 const express = require('express');
 const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
 
+const notesRouter = express.Router();
 
-const tipsRouter = express.Router();
-
-const notes = require('../db/db.json');
-
-tipsRouter.get('/', (req, res) => {
+notesRouter.get('/', (req, res) => {
 
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
         
@@ -19,7 +17,7 @@ tipsRouter.get('/', (req, res) => {
 
 });
 
-tipsRouter.post('/', (req, res) => {
+notesRouter.post('/', (req, res) => {
 
     let currentNotes = null;
 
@@ -32,7 +30,11 @@ tipsRouter.post('/', (req, res) => {
         } else {
             currentNotes = JSON.parse(data);
 
-            currentNotes.push({ "title": req.body.title, "text": req.body.text});
+            currentNotes.push({ 
+                "title": req.body.title,
+                 "text": req.body.text,
+                 "id": uuidv4()
+        });
 
             fs.writeFile("./db/db.json", JSON.stringify(currentNotes), (err) => {
                 
@@ -51,4 +53,4 @@ tipsRouter.post('/', (req, res) => {
     });
 });
 
-module.exports = tipsRouter;
+module.exports = notesRouter;

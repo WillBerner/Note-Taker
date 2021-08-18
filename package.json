@@ -4,7 +4,8 @@
   "description": "A Javascript web application for taking notes!",
   "main": "server.js",
   "scripts": {
-    "startDev": "npx nodemon server.js"
+    "devStart": "npx nodemon server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,8 @@
   },
   "homepage": "https://github.com/WillBerner/Note-Taker#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
