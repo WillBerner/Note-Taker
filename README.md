@@ -9,6 +9,8 @@ Note-Taker is a Javascript web application for creating, reading, and deleting n
 
 ## Usage Instructions
 
-Navigate to the live link using the title of this README or by clicking [here](https://notetaking-app-express.herokuapp.com/). Users are presented with a list of notes they have taken that they can then view. Users are also able to create new notes or delete existing ones.
+Navigate to the live link using the title of this README or by clicking [here](https://notetaking-app-express.herokuapp.com/). 
+
+Users are presented with a shared list of notes that have been taken, and can view specific notes for further information. Users are also able to create new notes or delete existing ones.
 
 &copy; 2021 [Will](https://github.com/WillBerner)
