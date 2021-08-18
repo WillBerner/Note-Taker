@@ -1,7 +1,7 @@
 # [Note-Taker](https://notetaking-app-express.herokuapp.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Note-Taker is a Javascript web application for creating, reading and deleting notes. The backend is built with Express and is hosted on Heroku, using a local json file to mimic a database and employing serveral CRUD operations. The frontend is styled with Bootstrap.
+Note-Taker is a Javascript web application for creating, reading, and deleting notes. The backend is built with Express and is hosted on Heroku, using a local JSON file to mimic a database and employing several CRUD operations. The frontend is styled with Bootstrap.
 
 ## Table of Contents
    
