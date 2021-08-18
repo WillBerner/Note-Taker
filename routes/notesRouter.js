@@ -7,13 +7,13 @@ const notesRouter = express.Router();
 notesRouter.get('/', (req, res) => {
 
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
-        
+
         if (err) {
             console.log(err);
         } else {
             res.send(JSON.parse(data));
         }
-    })
+    });
 
 });
 
@@ -22,26 +22,26 @@ notesRouter.post('/', (req, res) => {
     let currentNotes = null;
 
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
-        
+
         if (err) {
 
-          console.error(err);
+            console.error(err);
 
         } else {
             currentNotes = JSON.parse(data);
 
-            currentNotes.push({ 
+            currentNotes.push({
                 "title": req.body.title,
-                 "text": req.body.text,
-                 "id": uuidv4()
-        });
+                "text": req.body.text,
+                "id": uuidv4()
+            });
 
             fs.writeFile("./db/db.json", JSON.stringify(currentNotes), (err) => {
-                
+
                 if (err) {
 
                     console.log(err)
-                
+
                 } else {
 
                     console.log("Note Added.");
@@ -51,6 +51,34 @@ notesRouter.post('/', (req, res) => {
             });
         }
     });
+});
+
+notesRouter.delete('/:id', (req, res) => {
+    
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+
+        if (err) {
+            console.log(err);
+        } else {
+
+            const noteID = req.params.id;
+
+            const newNotes = JSON.parse(data).filter(note => note.id !== noteID);
+
+            fs.writeFile("./db/db.json", JSON.stringify(newNotes), (err) => {
+
+                if (err) {
+
+                    console.log(err)
+
+                } else {
+
+                    console.log("Note Deleted.");
+                    res.status(200).send(newNotes);
+                }
+            });
+        }
+    })
 });
 
 module.exports = notesRouter;

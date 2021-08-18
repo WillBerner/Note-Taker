@@ -56,6 +56,8 @@ const renderActiveNote = () => {
   if (activeNote.id) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
+    noteText.setAttribute('style', 'color: black')
+    noteTitle.setAttribute('style', 'color: black')
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
   } else {
